@@ -1,6 +1,6 @@
 import { useCartContext } from "../../../context/CartContext";
 import emptyCartIcon from "../../../assets/cart.svg";
-import { Container } from "./styles";
+import { ItemsCount } from "./style";
 
 function CartIcon() {
   const { cartItems } = useCartContext();
@@ -8,7 +8,7 @@ function CartIcon() {
   return (
     <>
       <img src={emptyCartIcon} alt="Cart Icon" />
-      {cartItems && <div>{cartItems}</div>}
+      {cartItems > 0 && <ItemsCount>{cartItems}</ItemsCount>}
     </>
   );
 }

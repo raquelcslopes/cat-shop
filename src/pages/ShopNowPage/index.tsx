@@ -1,11 +1,16 @@
-import React from 'react'
+import { Container, FilterContainer, ProductsContainer } from "./styles";
 
 function ShopNow() {
   return (
-    <div>
-      shop now
-    </div>
-  )
+    <>
+      <Container>
+        <FilterContainer></FilterContainer>
+        <ProductsContainer>
+          {}
+        </ProductsContainer>
+      </Container>
+    </>
+  );
 }
 
-export default ShopNow
+export default ShopNow;

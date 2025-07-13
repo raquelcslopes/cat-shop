@@ -4,7 +4,7 @@ import organicIcon from "../../assets/organic.svg";
 import starIcon from "../../assets/star.svg";
 import {
   Image,
-  LeftContainer,
+  RightContainer,
   Container,
   P,
   H1,
@@ -17,20 +17,20 @@ import {
 import { useCartContext } from "../../context/CartContext";
 
 function HomePage() {
-    const { addToCart } = useCartContext();
+  const { addToCart } = useCartContext();
 
   return (
     <Container>
       <TopContainer>
         <Image src={cat} alt="Cat background" />
-        <LeftContainer>
+        <RightContainer>
           <P>PRICE DROP ANNOUNCEMENT</P>
           <H1>CAT OF THE DAY</H1>
           <P $top={"0px"} $left={"390px"}>
             NOW AT $9,99
           </P>
           <Button onClick={addToCart}>ADD TO CART</Button>
-        </LeftContainer>
+        </RightContainer>
       </TopContainer>
       <BottomContainer>
         <IconsContainer>
