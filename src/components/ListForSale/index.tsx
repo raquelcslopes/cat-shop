@@ -107,13 +107,13 @@ function ListForSale() {
 
   const randomPrice = () => {
     const random = (Math.random() * 40 + 10).toFixed(2);
-    return `${random}`;
+    return `$${random}`;
   };
 
   useEffect(() => {
     const fetchRandomImage = async () => {
       try {
-        const response = await getRandomImage(3);
+        const response = await getRandomImage(12);
         setRandomImage(response);
       } catch (error) {
         console.log("Error:", error);
@@ -128,32 +128,19 @@ function ListForSale() {
   if (!randomImage) return <p>Image is temporarily unavailable </p>;
 
   return (
-    <Container>
-      <ItemForSale
-        image={randomImage[0].url || ""}
-        title={randomCatName()}
-        price={randomPrice()}
-        onClick={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-      ></ItemForSale>
-      <ItemForSale
-        image={randomImage[1].url || ""}
-        title={randomCatName()}
-        price={randomPrice()}
-        onClick={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-      ></ItemForSale>
-      <ItemForSale
-        image={randomImage[2].url || ""}
-        title={randomCatName()}
-        price={randomPrice()}
-        onClick={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-      ></ItemForSale>
-    </Container>
+    <>
+      {randomImage.map((cat, index) => (
+        <ItemForSale
+          key={index}
+          image={cat.url || ""}
+          title={randomCatName()}
+          price={randomPrice()}
+          onClick={function (): void {
+            throw new Error("Function not implemented.");
+          }}
+        ></ItemForSale>
+      ))}
+    </>
   );
 }
 
