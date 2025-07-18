@@ -4,7 +4,6 @@ import FilterItem from "../../components/FilterItem";
 import { getBreeds } from "../../service/breedsService";
 import { useEffect, useState } from "react";
 import { CatBreed } from "../../service/breedsService";
-import PriceSlider from "../../components/PriceSlider";
 
 const catColors = [
   "Black",

@@ -1,6 +1,14 @@
 import SVGButton from "../SVGButtons/index";
 import heartIcon from "../../assets/heart.svg";
-import { Image, Container, InfoContainer, TitleContainer, Title, Price } from "./styles";
+import {
+  Image,
+  Container,
+  InfoContainer,
+  TitleContainer,
+  Title,
+  Price,
+} from "./styles";
+import HeartButton from "../HeartButton";
 
 interface ItemForSaleProps {
   image: string;
@@ -17,12 +25,8 @@ function ItemForSale({ image, title, price, onClick }: ItemForSaleProps) {
       <Image src={image} alt="Cat photo" />
       <InfoContainer>
         <TitleContainer>
-        <Title>{title}</Title>
-        <SVGButton
-          src={heartIcon}
-          alt={"Heart Icon"}
-          onClick={onClick}
-        ></SVGButton>
+          <Title>{title}</Title>
+          <HeartButton></HeartButton>
         </TitleContainer>
         <Price>{price}</Price>
       </InfoContainer>
