@@ -4,6 +4,40 @@ import FilterItem from "../../components/FilterItem";
 import { getBreeds } from "../../service/breedsService";
 import { useEffect, useState } from "react";
 import { CatBreed } from "../../service/breedsService";
+import PriceSlider from "../../components/PriceSlider";
+
+const catColors = [
+  "Black",
+  "White",
+  "Gray",
+  "Orange",
+  "Brown",
+  "Cream",
+  "Blue",
+  "Calico",
+  "Tortoiseshell",
+  "Tabby",
+  "Ginger",
+  "Buff",
+  "Chocolate",
+  "Lilac",
+  "Fawn",
+  "Seal",
+  "Pointed",
+  "Smoke",
+  "Silver",
+  "Golden",
+];
+
+const priceRanges = [
+  "$10 - $20",
+  "$20 - $30",
+  "$30 - $40",
+  "$40 - $50"
+];
+
+
+const catGender = ["Male", "Female"];
 
 function ShopNow() {
   const [breeds, setBreeds] = useState<CatBreed[]>([]);
@@ -26,25 +60,22 @@ function ShopNow() {
           ></FilterItem>
           <FilterItem
             text={"COLOR"}
-            array={breeds.map((breed) => breed.origin)}
+            array={catColors.map((color) => color)}
           ></FilterItem>
           <FilterItem
             text={"GENDER"}
-            array={breeds.map((breed) => breed.name)}
+            array={catGender.map((gender) => gender)}
           ></FilterItem>
           <FilterItem
             text={"PRICE"}
-            array={breeds.map((breed) => breed.temperament)}
-          ></FilterItem>
-          <FilterItem
-            text={"TEMPERAMENT"}
-            array={breeds.map((breed) => breed.temperament)}
+            array={priceRanges.map((price) => price)}
           ></FilterItem>
           <FilterItem
             text={"ORIGIN"}
-            array={breeds.map((breed) => breed.temperament)}
+            array={breeds.map((breed) => breed.origin)}
           ></FilterItem>
         </FilterContainer>
+        
         <ProductsContainer>
           <ListForSale></ListForSale>
         </ProductsContainer>

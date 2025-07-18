@@ -28,7 +28,7 @@ export const BrandName = styled.button`
 export const Li = styled.li`
   list-style: none;
     font-family: ${theme.font.primary};
-    font-size: ${theme.fontSize.medium};
+    font-size: 20px;
     cursor: pointer;
 `;
 
