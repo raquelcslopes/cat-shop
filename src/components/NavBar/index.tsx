@@ -5,6 +5,7 @@ import CartIcon from "../SVGButtons/CartIcon";
 import { useState } from "react";
 import { BrandName, ButtonsContainer, Li, ListContainer, Nav } from "./styles";
 import { useNavigate } from "react-router-dom";
+import BurguerMenu from "../BurguerMenu";
 
 interface NavBarProps {
   navItems: string[];
@@ -15,6 +16,7 @@ function NavBar({ navItems }: NavBarProps) {
 
   return (
     <Nav>
+      <BurguerMenu/>
       <BrandName onClick={() => navigate("/")}>ARISTOCATS</BrandName>
       <ListContainer>
         {navItems.map((item, index) => (

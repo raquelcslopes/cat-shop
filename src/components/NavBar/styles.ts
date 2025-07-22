@@ -30,6 +30,10 @@ export const Li = styled.li`
     font-family: ${theme.font.primary};
     font-size: 20px;
     cursor: pointer;
+
+    @media (max-width: 800px) {
+      display: none;
+    }
 `;
 
 export const ListContainer = styled.div`

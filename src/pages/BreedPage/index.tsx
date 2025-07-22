@@ -2,9 +2,10 @@ import React from 'react'
 
 function BreedsPage() {
   return (
-    <div>
-      olaaaa
-    </div>
+    <>
+    <div></div>
+    <div></div>
+    </>
   )
 }
 
