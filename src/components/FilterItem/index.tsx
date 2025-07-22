@@ -1,6 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import arrowIcon from "../../assets/arrowDown.svg";
-import { Button, CheckBox, Container, HiddenContainer, HiddenItem, Icon } from "./styles";
+import {
+  Button,
+  CheckBox,
+  Container,
+  HiddenContainer,
+  HiddenItem,
+  Icon,
+} from "./styles";
 import SVGButtons from "../SVGButtons";
 import emptyCheckboxIcon from "../../assets/emptyCheckbox.svg";
 import selectedCheckboxIcon from "../../assets/selectedCheckbox.svg";
@@ -8,9 +15,10 @@ import selectedCheckboxIcon from "../../assets/selectedCheckbox.svg";
 interface FilterItemProps {
   text: string;
   array: string[];
+  onFilterChange?: (selected: string[]) => void;
 }
 
-function FilterItem({ text, array }: FilterItemProps) {
+function FilterItem({ text, array, onFilterChange }: FilterItemProps) {
   const [isOpen, setOpen] = useState(false);
   const [display, setDisplay] = useState(false);
   const [selectedItems, setSelectedItems] = useState<boolean[]>(() =>
@@ -26,7 +34,17 @@ function FilterItem({ text, array }: FilterItemProps) {
     setSelectedItems((prev) =>
       prev.map((item, i) => (i === index ? !item : item))
     );
+
+    if (onFilterChange) {
+      const selectedValues = array.filter((_, i) => selectedItems[i]);
+      onFilterChange(selectedValues);
+    }
+    return selectedItems;
   };
+
+  useEffect(() => {
+    setSelectedItems(array.map(() => false));
+  }, [array]);
 
   return (
     <Container>

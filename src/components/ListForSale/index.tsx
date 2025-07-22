@@ -126,6 +126,7 @@ function ListForSale() {
 
   if (loading) return <p>Image is loading</p>;
   if (!randomImage) return <p>Image is temporarily unavailable </p>;
+//TODO: add component for filtered breeds
 
   return (
     <>

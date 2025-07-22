@@ -28,18 +28,13 @@ const catColors = [
   "Golden",
 ];
 
-const priceRanges = [
-  "$10 - $20",
-  "$20 - $30",
-  "$30 - $40",
-  "$40 - $50"
-];
-
+const priceRanges = ["$10 - $20", "$20 - $30", "$30 - $40", "$40 - $50"];
 
 const catGender = ["Male", "Female"];
 
 function ShopNow() {
   const [breeds, setBreeds] = useState<CatBreed[]>([]);
+  const [selectedBreeds, setSelectedBreeds] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchBreeds = async () => {
@@ -49,6 +44,10 @@ function ShopNow() {
     fetchBreeds();
   }, []);
 
+  const filteredBreeds = breeds.filter((breed) =>
+    selectedBreeds.includes(breed.name)
+  );
+
   return (
     <>
       <Container>
@@ -56,6 +55,7 @@ function ShopNow() {
           <FilterItem
             text={"BREED"}
             array={breeds.map((breed) => breed.name)}
+            onFilterChange={(selected) => setSelectedBreeds(selected)}
           ></FilterItem>
           <FilterItem
             text={"COLOR"}
@@ -71,10 +71,10 @@ function ShopNow() {
           ></FilterItem>
           <FilterItem
             text={"ORIGIN"}
-            array={breeds.map((breed) => breed.origin)}
+            array={Array.from(new Set(breeds.map((b) => b.origin)))}
           ></FilterItem>
         </FilterContainer>
-        
+
         <ProductsContainer>
           <ListForSale></ListForSale>
         </ProductsContainer>

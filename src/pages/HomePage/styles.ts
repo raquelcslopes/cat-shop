@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../components/constants";
 
-export const Container = styled.div`
+export const DesktopWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -74,4 +74,52 @@ export const IconsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+export const MobileWrapper = styled.div`
+display: flex;
+flex-direction: column;
+`;
+
+export const InfoContainer = styled.div`
+display: flex;
+flex-direction: column;
+background-color: ${theme.colors.BLUE};
+color: white;
+`;
+
+export const PMobile = styled.p`
+display: flex;
+align-self: center;
+font-family: ${theme.font.primary};
+`;
+
+export const H1Mobile = styled.h1`
+display: flex;
+align-self: center;
+font-family: ${theme.font.secondary};
+`;
+
+export const ButtonMobile = styled.button`
+  color: ${theme.colors.WHITE};
+  background-color: ${theme.colors.YELLOW};
+  border-radius: ${theme.borderRadius.small};
+  border: none;
+  display: flex;
+  width: auto;
+  padding: 10px;
+  align-self: center;
+  justify-self: center;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.9;
+  }
+`;
+
+export const IconsContainerMobile = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin-top: 50px;
 `;
