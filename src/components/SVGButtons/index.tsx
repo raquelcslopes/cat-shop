@@ -1,17 +1,19 @@
 import { Image, SVGButton } from "./styles";
 
 interface SVGButtonsProps {
-    src:string,
-    alt:string,
-    onClick: () => void;
+  text?: string;
+  src: string;
+  alt: string;
+  onClick: () => void;
 }
 
-function SVGButtons({src, alt, onClick} : SVGButtonsProps)  {
+function SVGButtons({ src, alt, text, onClick }: SVGButtonsProps) {
   return (
     <SVGButton onClick={onClick}>
+      {text}
       <Image src={src} alt={alt} />
     </SVGButton>
-  )
+  );
 }
 
-export default SVGButtons
+export default SVGButtons;
