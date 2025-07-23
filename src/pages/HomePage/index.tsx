@@ -48,7 +48,7 @@ function HomePage() {
         <PMobile>PRICE DROP ANNOUNCEMENT</PMobile>
         <H1Mobile>CAT OF THE DAY</H1Mobile>
         <PMobile>NOW AT $9,99</PMobile>
-        <ButtonMobile>ADD TO CART</ButtonMobile>
+        <ButtonMobile onClick={addToCart}>ADD TO CART</ButtonMobile>
       </InfoContainer>
       <IconsContainerMobile>
         <img src={smileIcon} alt="Smile Icon" />
