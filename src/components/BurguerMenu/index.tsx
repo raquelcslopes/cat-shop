@@ -1,21 +1,18 @@
 import { useState } from "react";
-import {
-  Nav,
-  Menu,
-  MenuItem,
-  Burger,
-  MobileMenu
-} from "./styles";
+import { Nav, Menu, MenuItem, Burger, MobileMenu } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 const ResponsiveMenu = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <Nav>
       <Menu>
         <MenuItem>Home</MenuItem>
-        <MenuItem>About</MenuItem>
-        <MenuItem>Contact</MenuItem>
+        <MenuItem>Shop Now</MenuItem>
+        <MenuItem>Breeds</MenuItem>
+        <MenuItem>Top Favorites</MenuItem>
       </Menu>
 
       <Burger onClick={() => setOpen(!open)}>
@@ -25,9 +22,38 @@ const ResponsiveMenu = () => {
       </Burger>
 
       <MobileMenu $open={open}>
-        <MenuItem>Home</MenuItem>
-        <MenuItem>About</MenuItem>
-        <MenuItem>Contact</MenuItem>
+        <MenuItem
+          onClick={(e: React.MouseEvent) => {
+            e.preventDefault();
+            navigate("/");
+          }}
+        >
+          Home
+        </MenuItem>
+        <MenuItem
+          onClick={(e: React.MouseEvent) => {
+            e.preventDefault();
+            navigate("/shop-now");
+          }}
+        >
+          Shop Now
+        </MenuItem>
+        <MenuItem
+          onClick={(e: React.MouseEvent) => {
+            e.preventDefault();
+            navigate("/breed");
+          }}
+        >
+          Breeds
+        </MenuItem>
+        <MenuItem
+          onClick={(e: React.MouseEvent) => {
+            e.preventDefault();
+            navigate("/top-favorites");
+          }}
+        >
+          Top Favorites
+        </MenuItem>
       </MobileMenu>
     </Nav>
   );

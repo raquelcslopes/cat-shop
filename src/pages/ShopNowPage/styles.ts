@@ -28,3 +28,11 @@ export const ProductsContainer = styled.div`
   margin-top: 10px;
   margin-left: 10px;
 `;
+
+export const ListMobile = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 30px;
+gap: 20px
+`;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../constants";
 
 export const Nav = styled.nav`
   display: flex;
@@ -23,10 +24,9 @@ export const Menu = styled.ul`
 
 export const MenuItem = styled.li`
   cursor: pointer;
-
-  &:hover {
-    color: #0070f3;
-  }
+  color: white;
+  list-style: none;;
+  font-family: ${theme.font.primary};
 `;
 
 export const Burger = styled.div`
@@ -55,10 +55,13 @@ export const MobileMenu = styled.ul<{ $open: boolean }>`
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 60px;
+    top: 40px;
     left: 0;
-    width: 100%;
-    background: white;
+    width: 100px;
+    gap: 5px;
+    height: 100px;
+    background: black;
+
     padding: 1rem;
     transform: ${({ $open }) =>
       $open ? "translateX(0)" : "translateX(-100%)"};
