@@ -1,4 +1,4 @@
-import { SVGButton } from "./styles";
+import { Image, SVGButton } from "./styles";
 
 interface SVGButtonsProps {
     src:string,
@@ -9,7 +9,7 @@ interface SVGButtonsProps {
 function SVGButtons({src, alt, onClick} : SVGButtonsProps)  {
   return (
     <SVGButton onClick={onClick}>
-      <img src={src} alt={alt} />
+      <Image src={src} alt={alt} />
     </SVGButton>
   )
 }

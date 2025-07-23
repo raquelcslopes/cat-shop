@@ -8,3 +8,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 `;
+
+export const Image = styled.img`
+width: 80%;
+`;

@@ -7,9 +7,14 @@ export const ItemsCount = styled.div<{$color?: boolean}>`
   font-weight: 600;
   border-radius: 10%;
   height: fit-content;
+  font-size: small;
   width: 20px;
   padding: 1px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
+`;
+
+export const Image = styled.img`
+width: 20%;
 `;
