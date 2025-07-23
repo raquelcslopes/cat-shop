@@ -86,6 +86,7 @@ display: flex;
 flex-direction: column;
 background-color: ${theme.colors.BLUE};
 color: white;
+padding-bottom: 20px;
 `;
 
 export const PMobile = styled.p`
