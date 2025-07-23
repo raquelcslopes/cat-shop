@@ -1,62 +1,37 @@
 import styled from "styled-components";
+import {theme} from "../constants"
 
-export const Container = styled.div`
-  position: relative;
+export const SlideshowContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  margin-top: 50px;
-  overflow: hidden;
-  justify-self: center;
-  align-self: center;
-`;
-
-export const CarouselContainer = styled.div`
-  position: relative;
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const CarouselImg = styled.div`
-  width: 100%;
-  transition: transform 0.5s ease-in-out;
-  position: relative;
 `;
 
 export const Image = styled.img`
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  position: relative;
-  z-index: 1;
-  transition: filter 0.3s ease;
+height: 300px;
+width: 30px;
+object-fit: cover;
 `;
 
-export const InfoContainer = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  color: white;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  border-radius: 12px;
-  display: none;
-  &:hover {
-    display: flex;
-  }
-`;
-
-export const Subtitles = styled.figcaption`
+export const Title = styled.h1`
 display: flex;
 justify-content: center;
-align-items: center;
-margin-top: 10px;
-font-size: 18px;
+`;
+
+export const Text = styled.p`
+  background-color:rgba(0, 0, 0, 0.54);
+  color: white;
+  font-size: 20px;
+  font-family: ${theme.font.primary};
+display: flex;
+justify-content: center;
+`;
+
+export const Button = styled.button`
+background: none;
+border: none;
+color: black;
+font-weight: bolder;
+cursor: pointer;
 `;
