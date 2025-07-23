@@ -1,9 +1,10 @@
-import { Container, FilterContainer, ProductsContainer } from "./styles";
+import { Container, FilterContainer, ListMobile, ProductsContainer } from "./styles";
 import ListForSale from "../../components/ListForSale";
 import FilterItem from "../../components/FilterItem";
 import { getBreeds } from "../../service/breedsService";
 import { useEffect, useState } from "react";
 import { CatBreed } from "../../service/breedsService";
+import { useIsMobile } from "../../components/Mobile";
 
 const catColors = [
   "Black",
@@ -48,38 +49,64 @@ function ShopNow() {
     selectedBreeds.includes(breed.name)
   );
 
-  return (
+  return useIsMobile() ? (
     <>
-      <Container>
-        <FilterContainer>
-          <FilterItem
-            text={"BREED"}
-            array={breeds.map((breed) => breed.name)}
-            onFilterChange={(selected) => setSelectedBreeds(selected)}
-          ></FilterItem>
-          <FilterItem
-            text={"COLOR"}
-            array={catColors.map((color) => color)}
-          ></FilterItem>
-          <FilterItem
-            text={"GENDER"}
-            array={catGender.map((gender) => gender)}
-          ></FilterItem>
-          <FilterItem
-            text={"PRICE"}
-            array={priceRanges.map((price) => price)}
-          ></FilterItem>
-          <FilterItem
-            text={"ORIGIN"}
-            array={Array.from(new Set(breeds.map((b) => b.origin)))}
-          ></FilterItem>
-        </FilterContainer>
-
-        <ProductsContainer>
-          <ListForSale></ListForSale>
-        </ProductsContainer>
-      </Container>
+      <div>
+        <FilterItem
+          text={"BREED"}
+          array={breeds.map((breed) => breed.name)}
+          onFilterChange={(selected) => setSelectedBreeds(selected)}
+        ></FilterItem>
+        <FilterItem
+          text={"COLOR"}
+          array={catColors.map((color) => color)}
+        ></FilterItem>
+        <FilterItem
+          text={"GENDER"}
+          array={catGender.map((gender) => gender)}
+        ></FilterItem>
+        <FilterItem
+          text={"PRICE"}
+          array={priceRanges.map((price) => price)}
+        ></FilterItem>
+        <FilterItem
+          text={"ORIGIN"}
+          array={Array.from(new Set(breeds.map((b) => b.origin)))}
+        ></FilterItem>
+      </div>
+      <ListMobile>
+        <ListForSale></ListForSale>
+      </ListMobile>
     </>
+  ) : (
+    <Container>
+      <FilterContainer>
+        <FilterItem
+          text={"BREED"}
+          array={breeds.map((breed) => breed.name)}
+          onFilterChange={(selected) => setSelectedBreeds(selected)}
+        ></FilterItem>
+        <FilterItem
+          text={"COLOR"}
+          array={catColors.map((color) => color)}
+        ></FilterItem>
+        <FilterItem
+          text={"GENDER"}
+          array={catGender.map((gender) => gender)}
+        ></FilterItem>
+        <FilterItem
+          text={"PRICE"}
+          array={priceRanges.map((price) => price)}
+        ></FilterItem>
+        <FilterItem
+          text={"ORIGIN"}
+          array={Array.from(new Set(breeds.map((b) => b.origin)))}
+        ></FilterItem>
+      </FilterContainer>
+      <ProductsContainer>
+        <ListForSale></ListForSale>
+      </ProductsContainer>
+    </Container>
   );
 }
 
